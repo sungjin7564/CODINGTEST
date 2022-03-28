@@ -7,8 +7,7 @@
 
 현재 위치에 저장 될 값의 크기에 따라 두 개로 구분됨  
 
-**최소 선택 정렬(Min Selection Sort)**  
-**최대 선택 정렬(Max Selection Sort)**  
+**최소 선택 정렬(Min Selection Sort)**, **최대 선택 정렬(Max Selection Sort)**  
 
 **최소 선택 정렬은 오름차순**으로, **최대 선택 정렬은 내림 차순**으로 정렬  
 
