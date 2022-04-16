@@ -1,27 +1,28 @@
-n = int(input())
+n=int(input())
+board_row = [0] * n
+res=0
+visited=[False]*n
 
-ans = 0
-row = [0] * n
 
-def is_promising(x):
-    for i in range(x):
-        if row[x] == row[i] or abs(row[x] - row[i]) == abs(x - i):
+def promising_check(cur_col):
+    for i in range(cur_col):
+        if abs(board_row[cur_col]-board_row[i]) == cur_col-i:
             return False
-    
     return True
 
-def n_queens(x):
-    global ans
-    if x == n:
-        ans += 1
-        return
+def n_queen(cur_col):
+    global res
+    if cur_col == n:
+        res += 1
+        return 
+    for i in range(n):
+        if visited[i]:
+            continue
+        board_row[cur_col]=i
+        if promising_check(cur_col):
+            visited[i]=True
+            n_queen(cur_col+1)
+            visited[i]=False
 
-    else:
-        for i in range(n):
-            # [x, i]에 퀸을 놓겠다.
-            row[x] = i
-            if is_promising(x):
-                n_queens(x+1)
-
-n_queens(0)
-print(ans)
+n_queen(0)            
+print(res)
